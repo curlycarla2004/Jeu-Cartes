@@ -2,12 +2,14 @@
 
 require 'class/Carte.php';
 require 'class/CarteTriche.php';
+require 'class/CarteWTF.php';
 
 //séléction de trois cartes.
 $cartes = [
   new Carte(),
   new CarteTriche(),
   new Carte(),
+  new CarteWTF(),
 ];
 
 
