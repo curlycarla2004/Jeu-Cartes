@@ -1,12 +1,15 @@
 <?php
 
 require 'class/Carte.php';
+require 'class/CarteTriche.php';
 
-$cartes = [];
-//Sélection de 3 cartes aléatoires.
-for ($i=0; $i <= 2 ; $i++) {
-  $cartes[] = new Carte();
-}
+//séléction de trois cartes.
+$cartes = [
+  new Carte(),
+  new CarteTriche(),
+  new Carte(),
+];
+
 
 ?>
 

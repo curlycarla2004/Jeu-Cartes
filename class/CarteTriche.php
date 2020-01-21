@@ -2,7 +2,11 @@
 
 require_once 'CarteInterface.php';
 
-class Carte implements CarteInterface
+/**
+ * La carte triche ne peut être qu'un As!
+ *
+ */
+class CarteTriche implements CarteInterface
 {
 
   //Enseigne d'une carte (Pique, Coeur, Trèfle ou Carreau).
@@ -89,32 +93,12 @@ class Carte implements CarteInterface
    * @param $valeur string
    */
   private function setValeur($valeur){
-    //Si le paramètre $valeur n'est pas vide.
-    if(!empty($valeur)){
+    //Si $valeur est vide, alors on cré un As systématiquement.
+    if(empty($valeur)){
+      $this->_valeur = 1;
+    }
+    else
       $this->_valeur = $valeur;
-    }
-    //Sinon on attribue une valeur aléatoire.
-    else{
-      $hasard = rand(1, 13);
-      switch ($hasard) {
-        case 11:
-          //On va dire que ceci est un valet.
-          $this->_valeur = '💂🏻‍♂️';
-          break;
-        case 12:
-          //dame.
-          $this->_valeur = '👸🏻';
-        break;
-        //roi.
-        case 13:
-          $this->_valeur = '🤴🏻';
-        break;
-        //Sinon il s'agit d'un nombre entre 1 et 10.
-        default:
-          $this->_valeur = $hasard;
-          break;
-      }
-    }
   }
 
 }
